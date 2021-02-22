@@ -6,7 +6,7 @@
     </div>
     <center><table border = "1">
     <?php
-        include('config/fonction.php');
+        include('config/data.php');
         $bdd= connect();
         $sql="select * from photoambience";
         $resultat=$bdd->query($sql);
@@ -14,7 +14,7 @@
             {
             echo "<tr>
                     <td>".$photo->id_pho."</td>
-                    <td>".$photo->Nom."</td>
+                    <td><img src='img/photos_produits/".$photo->Nom."' /></td>
                   </tr>";
             }
         ?>
