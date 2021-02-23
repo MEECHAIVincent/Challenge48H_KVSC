@@ -38,23 +38,6 @@
 
 <body>
 
-
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        
-      </div><!--/.nav-collapse -->
-    </div>
-  </nav>
-
 <div class="wrapper">
 
 <div class="container">
@@ -63,6 +46,7 @@
     <div class="col-lg-12">
                   <div class="panel panel-default">
                       <div class="panel-heading">
+                          <h3><a href="form_search.php"><span class="glyphicon glyphicon-search"></span>&nbsp; Rechercher</a></h3>
                           <h3><a href="add.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add File</a></h3>
                       </div>
                       <!-- /.panel-heading -->
@@ -78,12 +62,12 @@
                                       </tr>
                                   </thead>
                                   <tbody>
-                <?php
-                $select_stmt=$db->prepare("SELECT * FROM tbl_file");	//sql select query
-                $select_stmt->execute();
-                while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
-                {
-                ?>
+                                    <?php
+                                    $select_stmt=$db->prepare("SELECT * FROM tbl_file");	//sql select query
+                                    $select_stmt->execute();
+                                    while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
+                                    {
+                                    ?>
                                       <tr>
                                           <td><?php echo $row['name']; ?></td>
                                           <td><img src="upload/<?php echo $row['image']; ?>" width="100px" height="60px"></td>
