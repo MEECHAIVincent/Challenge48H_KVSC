@@ -200,16 +200,15 @@ if(isset($_REQUEST['btn_insert']))
 				</div>
 
 				<div class="form-group">
-					<label class="col-sm-3 control-label">photo instituteur</label>
-					<div class="col-sm-6">
-					<select class="form-select form-select-lg mb-3" name="txt_photoinsti" aria-label=".form-select-lg example">
-					<option selected></option>
-					<option value="oui">oui</option>
-					<option value="non">Non</option>
-					</select>
-					</div>
+				<label class="col-sm-3 control-label">photo instituteur</label>
+				<div class="col-sm-6">
+				<select class="form-select form-select-lg mb-3" name="txt_photoinsti" aria-label=".form-select-lg example">
+                  <option selected></option>
+                  <option value="oui">oui</option>
+                  <option value="non">Non</option>
+                </select>
 				</div>
-
+				</div>
 				<div class="form-group">
 				<label class="col-sm-3 control-label">Format</label>
 				<div class="col-sm-6">

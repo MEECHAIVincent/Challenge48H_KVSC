@@ -20,6 +20,7 @@
 		
 		header("Location:index.php");
 	}
+  
 	
 ?>
 <!DOCTYPE html>
@@ -75,8 +76,8 @@
                                           <td><a href="?delete_id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
                                       </tr>
                                   <?php
-                }
-                ?>
+                                }
+                                ?>
                                   </tbody>
                               </table>
                           </div>
