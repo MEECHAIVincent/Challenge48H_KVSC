@@ -120,7 +120,7 @@ if(isset($_REQUEST['btn_insert']))
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php"></a></li>
+            <li class="active"><a href="index.php">Back to Home</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -151,61 +151,65 @@ if(isset($_REQUEST['btn_insert']))
 		?>   
 		
 			<form method="post" class="form-horizontal" enctype="multipart/form-data">
-					
+
 				<div class="form-group">
-				<label class="col-sm-3 control-label">Name</label>
-				<div class="col-sm-6">
-				<input type="text" name="txt_name" class="form-control" placeholder="enter name" />
+					<label class="col-sm-3 control-label">File</label>
+					<div class="col-sm-6">
+						<input type="file" name="txt_file" class="form-control" />
+					</div>
 				</div>
+						
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Name</label>
+					<div class="col-sm-6">
+						<input type="text" name="txt_name" class="form-control" placeholder="enter name" />
+					</div>
 				</div>
 
 				<div class="form-group">
-				<label class="col-sm-3 control-label">categorie</label>
-				<div class="col-sm-6">
-				
-				<select class="form-select"  name="txt_categorie" aria-label=".form-select-lg example">
-                  <option selected>enter la categorie</option>
-                  <option value="Produit">Produit</option>
-                  <option value="Ambiance">Ambiance</option>
-                </select>	
-				</div>
-				</div>
-
-				<div class="form-group">
-				<label class="col-sm-3 control-label">Photo produit</label>
-				<div class="col-sm-6">
-				
-				<select class="form-select form-select-lg mb-3" name="txt_photoprod" aria-label=".form-select-lg example">
-                  <option selected></option>
-                  <option value="oui">oui</option>
-                  <option value="non">Non</option>
-                </select>	
-				</div>
+					<label class="col-sm-3 control-label">categorie</label>
+					<div class="col-sm-6">
+						<select class="form-select"  name="txt_categorie" aria-label=".form-select-lg example">
+						<option selected>enter la categorie</option>
+						<option value="Produit">Produit</option>
+						<option value="Ambiance">Ambiance</option>
+						</select>	
+					</div>
 				</div>
 
 				<div class="form-group">
-				<label class="col-sm-3 control-label">photo humain</label>
-				<div class="col-sm-6">
-				
-				<select class="form-select form-select-lg mb-3" name="txt_photohum" aria-label=".form-select-lg example">
-                  <option selected></option>
-                  <option value="oui">oui</option>
-                  <option value="non">Non</option>
-                </select>
-				</div>
+					<label class="col-sm-3 control-label">Photo produit</label>
+					<div class="col-sm-6">
+						<select class="form-select form-select-lg mb-3" name="txt_photoprod" aria-label=".form-select-lg example">
+						<option selected></option>
+						<option value="oui">oui</option>
+						<option value="non">Non</option>
+						</select>	
+					</div>
 				</div>
 
 				<div class="form-group">
-				<label class="col-sm-3 control-label">photo institu</label>
-				<div class="col-sm-6">
-		
-				<select class="form-select form-select-lg mb-3" name="txt_photoinsti" aria-label=".form-select-lg example">
-                  <option selected></option>
-                  <option value="oui">oui</option>
-                  <option value="non">Non</option>
-                </select>
+					<label class="col-sm-3 control-label">photo humain</label>
+						<div class="col-sm-6">
+						<select class="form-select form-select-lg mb-3" name="txt_photohum" aria-label=".form-select-lg example">
+						<option selected></option>
+						<option value="oui">oui</option>
+						<option value="non">Non</option>
+						</select>
+					</div>
 				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3 control-label">photo instituteur</label>
+					<div class="col-sm-6">
+					<select class="form-select form-select-lg mb-3" name="txt_photoinsti" aria-label=".form-select-lg example">
+					<option selected></option>
+					<option value="oui">oui</option>
+					<option value="non">Non</option>
+					</select>
+					</div>
 				</div>
+
 				<div class="form-group">
 				<label class="col-sm-3 control-label">Format</label>
 				<div class="col-sm-6">
@@ -216,16 +220,7 @@ if(isset($_REQUEST['btn_insert']))
                   <option value="horizontal">horizontal</option>
                 </select>
 				</div>
-				</div>
-
-
-				<div class="form-group">
-				<label class="col-sm-3 control-label">File</label>
-				<div class="col-sm-6">
-				<input type="file" name="txt_file" class="form-control" />
-				</div>
-				</div>
-					
+				</div>					
 					
 				<div class="form-group">
 				<div class="col-sm-offset-3 col-sm-9 m-t-15">
