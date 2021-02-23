@@ -1,6 +1,13 @@
 <?php
-define('HOST','localhost');
-define('DBNAME','passionfroid');
-define('USER','root');
-define('PW','');
-?>
+$server = "localhost";
+$username = "root";
+$password = "";
+$dbname = "passionfroid";
+
+// Create connection
+try{
+  $conn = new PDO("mysql:host=$server;dbname=$dbname","$username","$password");
+  $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+}catch(PDOException $e){
+  die('Unable to connect with the database');
+}
