@@ -2,7 +2,7 @@
 $db_host="localhost"; //localhost server 
 $db_user="root";	//database username
 $db_password="";	//database password   
-$db_name="db_fileupload";	//database name
+$db_name="passionfroid";	//database name
 
 try
 {

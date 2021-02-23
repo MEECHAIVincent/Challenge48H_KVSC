@@ -114,13 +114,9 @@ if(isset($_REQUEST['btn_update']))
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://onlyxscript.blogspot.in/">onlyxscript.blogspot.com</a>
+         
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="http://onlyxscript.blogspot.in/2018/04/how-to-upload-insert-update-and-delete.html">Back to Tutorial</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+       
       </div>
     </nav>
 	

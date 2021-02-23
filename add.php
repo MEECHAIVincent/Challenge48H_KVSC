@@ -7,7 +7,13 @@ if(isset($_REQUEST['btn_insert']))
 	try
 	{
 		$name	= $_REQUEST['txt_name'];	//textbox name "txt_name"
-			
+		$categorie	= $_REQUEST['txt_categorie'];
+		$photoprod	= $_REQUEST['txt_photoprod'];
+		$photohum	= $_REQUEST['txt_photohum'];
+		$photoinsti	= $_REQUEST['txt_photoinsti'];
+		$format	= $_REQUEST['txt_format'];
+		
+
 		$image_file	= $_FILES["txt_file"]["name"];
 		$type		= $_FILES["txt_file"]["type"];	//file name "txt_file"	
 		$size		= $_FILES["txt_file"]["size"];
@@ -17,6 +23,21 @@ if(isset($_REQUEST['btn_insert']))
 		
 		if(empty($name)){
 			$errorMsg="Please Enter Name";
+		}
+		if(empty($categorie)){
+			$errorMsg="Please Enter categorie";
+		}
+		if(empty($photoprod)){
+			$errorMsg="Please Enter photoprod";
+		}
+		if(empty($photohum)){
+			$errorMsg="Please Enter photohum";
+		}
+		if(empty($photoinsti)){
+			$errorMsg="Please Enter photoinsti";
+		}
+		if(empty($format)){
+			$errorMsg="Please Enter format";
 		}
 		else if(empty($image_file)){
 			$errorMsg="Please Select Image";
@@ -46,8 +67,13 @@ if(isset($_REQUEST['btn_insert']))
 		
 		if(!isset($errorMsg))
 		{
-			$insert_stmt=$db->prepare('INSERT INTO tbl_file(name,image) VALUES(:fname,:fimage)'); //sql insert query					
-			$insert_stmt->bindParam(':fname',$name);	
+			$insert_stmt=$db->prepare('INSERT INTO tbl_file(name,categorie,photoprod,photohum,photoinsti,format,image) VALUES(:fname,:fcategorie,:fphotoprod,:fphotohum,:fphotoinsti,:fformat,:fimage)'); //sql insert query					
+			$insert_stmt->bindParam(':fname',$name);
+			$insert_stmt->bindParam(':fcategorie',$categorie);	
+			$insert_stmt->bindParam(':fphotoprod',$photoprod);
+			$insert_stmt->bindParam(':fphotohum',$photohum);
+            $insert_stmt->bindParam(':fphotoinsti',$photoinsti);
+            $insert_stmt->bindParam(':fformat',$format);
 			$insert_stmt->bindParam(':fimage',$image_file);	  //bind all parameter 
 		
 			if($insert_stmt->execute())
@@ -71,7 +97,7 @@ if(isset($_REQUEST['btn_insert']))
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
-<title>PHP PDO File Upload Using MySQL:onlyxscript.blogspot.in</title>
+<title>challange 48</title>
 		
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script src="js/jquery-1.12.4-jquery.min.js"></script>
@@ -94,7 +120,7 @@ if(isset($_REQUEST['btn_insert']))
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.php">Back to Tutorial</a></li>
+            <li class="active"><a href="index.php"></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -132,8 +158,67 @@ if(isset($_REQUEST['btn_insert']))
 				<input type="text" name="txt_name" class="form-control" placeholder="enter name" />
 				</div>
 				</div>
-					
-					
+
+				<div class="form-group">
+				<label class="col-sm-3 control-label">categorie</label>
+				<div class="col-sm-6">
+				
+				<select class="form-select"  name="txt_categorie" aria-label=".form-select-lg example">
+                  <option selected>enter la categorie</option>
+                  <option value="Produit">Produit</option>
+                  <option value="Ambiance">Ambiance</option>
+                </select>	
+				</div>
+				</div>
+
+				<div class="form-group">
+				<label class="col-sm-3 control-label">Photo produit</label>
+				<div class="col-sm-6">
+				
+				<select class="form-select form-select-lg mb-3" name="txt_photoprod" aria-label=".form-select-lg example">
+                  <option selected></option>
+                  <option value="oui">oui</option>
+                  <option value="non">Non</option>
+                </select>	
+				</div>
+				</div>
+
+				<div class="form-group">
+				<label class="col-sm-3 control-label">photo humain</label>
+				<div class="col-sm-6">
+				
+				<select class="form-select form-select-lg mb-3" name="txt_photohum" aria-label=".form-select-lg example">
+                  <option selected></option>
+                  <option value="oui">oui</option>
+                  <option value="non">Non</option>
+                </select>
+				</div>
+				</div>
+
+				<div class="form-group">
+				<label class="col-sm-3 control-label">photo institu</label>
+				<div class="col-sm-6">
+		
+				<select class="form-select form-select-lg mb-3" name="txt_photoinsti" aria-label=".form-select-lg example">
+                  <option selected></option>
+                  <option value="oui">oui</option>
+                  <option value="non">Non</option>
+                </select>
+				</div>
+				</div>
+				<div class="form-group">
+				<label class="col-sm-3 control-label">Format</label>
+				<div class="col-sm-6">
+				
+				<select class="form-select form-select-lg mb-3"  name="txt_format" aria-label=".form-select-lg example">
+                  <option selected></option>
+                  <option value="vertical">Vertical</option>
+                  <option value="horizontal">horizontal</option>
+                </select>
+				</div>
+				</div>
+
+
 				<div class="form-group">
 				<label class="col-sm-3 control-label">File</label>
 				<div class="col-sm-6">
