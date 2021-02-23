@@ -10,12 +10,12 @@
         var_dump($countfiles);
     
         // Prepared statement
-        $query = "INSERT INTO images (name,image) VALUES(?,?)";
+        $query = "INSERT INTO photos (name,image) VALUES(?,?)";
     
         $statement = $conn->prepare($query);
     
         // Loop all files
-        for($i=0;$i<$countfiles;$i++){
+        for($i=0;$i<$countfiles;$i++ ){
     
         // File name
         $filename = $_FILES['files']['name'][$i];
