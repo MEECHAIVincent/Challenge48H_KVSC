@@ -1,4 +1,6 @@
-<?php include 'inc/header.php'; ?>
+<?php include 'inc/header.php'; 
+session_start();
+?>
 <div class="container-fluid">
 
     <div class="page-header">
@@ -8,7 +10,7 @@
     <?php
         include('config/data.php');
         $bdd= connect();
-        $sql="select * from photoambience";
+        $sql="select * from photos";
         $resultat=$bdd->query($sql);
         while($photo=$resultat->fetch(PDO::FETCH_OBJ))
             {
