@@ -1,6 +1,17 @@
 <?php
 
 require_once "connection.php";
+	$search_keyword = '';
+	if(!empty($_POST['search']['keyword'])) {
+		$search_keyword = $_POST['search']['keyword'];
+	}
+	$sql = 'SELECT * FROM tbl_file WHERE name LIKE :keyword OR categorie LIKE :keyword ORDER BY id DESC ';
+	
+
+	$pdo_statement = $db->prepare($sql);
+	$pdo_statement->bindValue(':keyword', '%' . $search_keyword . '%', PDO::PARAM_STR);
+	$pdo_statement->execute();
+	$result = $pdo_statement->fetchAll();
 
 
 ?>
@@ -46,48 +57,39 @@ require_once "connection.php";
 
 		<div class="col-lg-12">
 
-			<form method="post" class="form-horizontal" action="form_search.php">
-
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Name</label>
-					<div class="col-sm-6">
-						<input type="text" name="txt_name" class="form-control" placeholder="enter name" />
-					</div>
+			<form name='frmSearch' action='' method='post'>
+				<div style='text-align:right;margin:20px 0px;'><input type='text' name='search[keyword]' value="<?php echo $search_keyword; ?>" id='keyword' maxlength='25'></div>
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered table-hover">
+						<thead>
+							<tr>
+							<th>Name</th>
+							<th>categorie</th>
+							<th>Image</th>
+							<th>Edit</th>
+                            <th>Delete</th>
+							</tr>
+						</thead>
+						<tbody id='table-body'>
+							<?php
+							if(!empty($result)) { 
+								foreach($result as $row) {
+							?>
+							<tr class='table-row'>
+								<td><?php echo $row['name']; ?></td>
+								<td><?php echo $row['categorie']; ?></td>
+								<td><img src="upload/<?php echo $row['image']; ?>" width="100px" height="60px"></td>
+								<td><a href="edit.php?update_id=<?php echo $row['id']; ?>" class="btn btn-warning">Edit</a></td>
+                                <td><a href="?delete_id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
+							</tr>
+							<?php
+								}
+							}
+							?>
+						</tbody>
+					</table>
 				</div>
-
-				<div class="form-group">
-					<label class="col-sm-3 control-label">categorie</label>
-					<div class="col-sm-6">
-						<select class="form-select"  name="txt_categorie" aria-label=".form-select-lg example">
-						<option selected>enter la categorie</option>
-						<option value="Produit">Produit</option>
-						<option value="Ambiance">Ambiance</option>
-						</select>
-					</div>
-				</div>
-
-				<div class="form-group">
-				<div class="col-sm-offset-3 col-sm-9 m-t-15">
-				    <input type="submit"  name="search" class="btn btn-success " value="Insert">
-				    <a href="index.php" class="btn btn-danger">Cancel</a>
-				</div>
-				</div>
-
 			</form>
-			<?php
-				if (isset($_POST['search'])) {
-					// (B1) SEARCH FOR USERS
-					require "search.php";
-				
-					// (B2) DISPLAY RESULTS
-					if (count($results) > 0) {
-					foreach ($results as $r) {
-						printf("<div>%s - %s</div>", $r['name'], $r['image']);
-					}
-					} else { echo "No results found"; }
-				}
-			?>
-
 
 		</div>
 
